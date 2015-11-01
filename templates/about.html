@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block nav %}
+
+<li><a href="index.php">Главная <span class="sr-only">(current)</span></a></li>
+<li><a href="goods.php">Товары</a></li>
+<li class="active"><a href="about.php">О нас</a></li>{% endblock %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <p>Содержание страницы "О нас"</p>
+{% endblock %}
