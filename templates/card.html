@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+{% import 'macros.html' as  macros %}
+
+{% block nav %}
+
+<li><a href="index.php">Главная <span class="sr-only">(current)</span></a></li>
+<li class="active"><a href="goods.php">Товары</a></li>
+<li><a href="about.php">О нас</a></li>{% endblock %}
+
+{% block content %}
+    <h1>{{ title }} - {{ item.id}}</h1>
+    <table class="table-bordered">
+        <tr>
+            <td>Название товара</td>
+            <td>{{ item.name }}</td>
+         </tr>
+        <tr>
+            <td>Описание товара</td>
+            <td>{{ item.description }}</td>
+        </tr>
+        <tr>
+            <td>Дата поступления в продажу</td>
+            <td>{{ item.date | date('d-m-Y') }}</td>
+        </tr>
+    </table>
+<div>
+    Теги:
+    {{ macros.tagList(item) }}
+</div>
+<a href="goods.php">Назад к каталогу</a>
+{% endblock %}

@@ -1,10 +1,9 @@
 <?php
 
 
-function __autoload($classname) {
 
-}
 require_once __DIR__.'/vendor/autoload.php';
+require_once __DIR__.'/arrays.php';
 
 Twig_Autoloader::register();
 
@@ -16,6 +15,12 @@ $twig = new Twig_Environment($loader);
 
 $title = 'Наши товары';
 
+
+
+
 echo $twig->render('goods.html',[
-'title' => $title,
+    'title' => $title,
+    'goods' => $goods,
+
+
 ]);

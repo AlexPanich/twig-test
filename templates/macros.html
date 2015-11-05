@@ -1,0 +1,5 @@
+{% macro tagList(item) %}
+    {% for tag in item.tags %}
+    <a href="#">{{ tag }}</a>,
+    {% endfor %}
+{% endmacro %}

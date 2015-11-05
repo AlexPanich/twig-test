@@ -1,8 +1,14 @@
+{% import 'macros.html' as  macros %}
 <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
 <div class="panel panel-primary">
-    <div class="panel-heading">Название товара {{ i }}</div>
+    <div class="panel-heading">{{ item.name | slice(0, 7) }}</div>
     <div class="panel-body">
-        Описание товара {{ i }}
+        <a href="card.php?id={{ item.id }}">{{ item.description | slice(0, 20) }} </a>
+    </div>
+    <div class="panel-footer">
+        дата поступления: {{ item.date | date('Y')  }}<br>
+        теги:
+        {{ macros.tagList(item) }}
     </div>
 </div>
 </div>
