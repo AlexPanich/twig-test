@@ -1,5 +1,5 @@
 {% macro tagList(item) %}
     {% for tag in item.tags %}
-    <a href="#">{{ tag }}</a>,
+    <a href="#">{{ tag }}</a>{% if not loop.last %},{% endif %}
     {% endfor %}
 {% endmacro %}
