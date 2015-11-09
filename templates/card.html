@@ -23,10 +23,28 @@
             <td>Дата поступления в продажу</td>
             <td>{{ item.date | date('d-m-Y') }}</td>
         </tr>
+        <tr>
+            <td>Цена</td>
+            <td><b><big>{{ item.price }}руб</big></b><br>
+                {{ item.price | priceToDollars }}$ <br>
+                {{ item.price | priceToEuro}}&euro;</td>
+        </tr>
     </table>
 <div>
     Теги:
     {{ macros.tagList(item) }}
+</div>
+<br>
+<br>
+<br>
+<br>
+{% set randomTag = random(item.tags) %}
+Обратите внимание на эти товары с тегом: {{ randomTag }}<br>
+<div class="row">
+    {% set goodsByTag = byTag(goods, randomTag) %}
+    {% for item in goodsByTag %}
+    {% include 'product.html' %}
+    {% endfor %}
 </div>
 <a href="goods.php">Назад к каталогу</a>
 {% endblock %}

@@ -7,8 +7,16 @@
     </div>
     <div class="panel-footer">
         дата поступления: {{ item.date | date('Y')  }}<br>
+        <hr>
+        цена: <b><big>{{ item.price }}руб</big></b> <br>
+        цена: <spa>{{ item.price | priceToDollars }}$</span> <br>
+        цена: <spa>{{ item.price | priceToEuro}}&euro;</span> <br>
+            <hr>
         теги:
-        {{ macros.tagList(item) }}
+        {{ macros.tagList(item) }} <br>
+        {% if item is adult %}
+            <div class="alert alert-danger" role="alert">Рекомендованно для взрослых 18+</div>
+        {% endif %}
     </div>
 </div>
 </div>
